@@ -1,0 +1,16 @@
+<ons-page  >
+    <ons-toolbar>
+        <div class="right">
+            <ons-toolbar-button>
+                <ons-icon icon="ion-ios-arrow-thin-right" ng-click="gallerynav.popPage()" style="color: white; font-size: 28px;" fixed-width="false"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center"> {{ gallerynav.topPage.data.title }} </div>
+    </ons-toolbar>
+    <div class="main">
+        <div class="gallery">
+            <img  ng-repeat="(key,n) in [0,1,2,3,4,5,6,7,8,9,11,12]" src="img/test/product/{{n}}.jpg"  ng-click="showDialog();active_swiper(key);">
+        </div>
+    </div>
+</ons-page>
+
