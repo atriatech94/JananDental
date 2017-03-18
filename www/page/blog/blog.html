@@ -11,7 +11,7 @@
                <ons-list>
                    <ons-list-item ng-repeat="post in posts" ng-click="blognav.pushPage('blog_detail.html', {data: {title:post.title,image:post.image,date:post.date,cat_name:post.cat_name,text:post.description}})" modifier="chevron" class="list-item-container">
                        <ons-row>
-                           <ons-col width="110px"><img img-cache ic-src="{{post.image}}" class="thumbnail"></ons-col>
+                           <ons-col width="110px"><img ng-src="{{post.image}}" class="thumbnail"></ons-col>
                            <ons-col>
                                <div class="name">{{post.title}}</div>
                                <div class="cat"><i class="ion-bookmark"></i> {{post.cat_name}} </div>

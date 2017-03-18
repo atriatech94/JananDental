@@ -8,7 +8,7 @@
                 <ks-swiper-container slides-per-view="1" swiper="swiperSliderOne" on-ready="onReadySwiper(swiper)" slides-per-column="1" space-between="0" pagination-is-active="false" pagination-clickable="false" show-nav-buttons="false" loop="true" autoplay="5000" initial-slide="0" direction="horizontal">
                     <ks-swiper-slide class="swiper-slide" ng-repeat="slider in sliders">
                         <div class="item">
-                            <img img-cache ic-src="{{img+'slider/'+slider.picname}}">
+                            <img ng-src="{{img+'slider/'+slider.picname}}">
                             <p>{{slider.title}}</p>
                         </div>
                     </ks-swiper-slide> 
@@ -20,13 +20,13 @@
                 <p ng-bind-html="short_des" class="m0 h6"></p>
             </div>
             <!-- service slider-->
-            <h3 class="text-center mt10 mb5">خدمات</h3>
+            <h3 ng-show="show_content" class="text-center mt10 mb5">خدمات</h3>
             <div class="service_slider">
                 
                 <ks-swiper-container  swiper="swiperSlidertwo" show-scroll-bar="false" on-ready="onReadySwiper2(swiper)" slides-per-view="2" space-between="0" >
                     <ks-swiper-slide class="swiper-slide" ng-repeat="service in services">
                         <div class="item card">
-                            <img ng-click="showService.pushPage('service_detail.html', {data:{title:service.title,picname:service.picname,text:service.description,date:service.date}})" img-cache ic-src="{{img+'post/'+service.picname}}">
+                            <img ng-click="showService.pushPage('service_detail.html', {data:{title:service.title,picname:service.picname,text:service.description,date:service.date}})" ng-src="{{img+'post/'+service.picname}}">
                             <h3>{{service.title}}</h3>
                             <p> {{service.desc}}</p>
                             <div class="card-footer">

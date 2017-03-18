@@ -1,7 +1,6 @@
  angular.module('myapp')
  .controller('blog', function($scope,$http) { 
         $scope.btn_hide = 1;
-        alert($scope.btn_hide);
         $http({
                 method: 'GET',
                 url: base_url+'get_blog/jananTEstYESSYwds/0',  
