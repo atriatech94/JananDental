@@ -1,4 +1,4 @@
-<ons-page  >
+<ons-page  > 
     <ons-toolbar>
         <div class="right">
             <ons-toolbar-button>
@@ -9,7 +9,7 @@
     </ons-toolbar>
     <div class="main">
         <div class="gallery">
-            <img  ng-repeat="(key,n) in [0,1,2,3,4,5,6,7,8,9,11,12]" src="img/test/product/{{n}}.jpg"  ng-click="showDialog();active_swiper(key);">
+            <img  ng-repeat="(key,gallery) in galleries" ng-src="{{img+'gallery-small/'+gallery.picname}}"  ng-click="showDialog();active_swiper(key);">
         </div>
     </div>
 </ons-page>

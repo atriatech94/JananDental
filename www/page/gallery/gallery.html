@@ -1,6 +1,6 @@
 <ons-navigator var="gallerynav" animation="slide" page="gallery.html"></ons-navigator>
 
-<ons-template id="gallery.html">
+<ons-template id="gallery.html"> 
     <ons-page>
         <ons-toolbar>
            <!-- <div class="left"><ons-toolbar-button><ons-icon ng-click="gallery_popover.show($event)" icon="ion-gear-a"  style="color: white; font-size: 28px;" fixed-width="false"></ons-icon></ons-toolbar-button></div> --> 
@@ -8,10 +8,10 @@
         </ons-toolbar>
         <div class="main">
            <div class="contain-gallery">
-               <div class="gallery-one" ng-repeat="n in [0,1,2,3]" ng-click="gallerynav.pushPage('gallery_detail.html', {data: {id: n,title:'شرکت آتریاتک'}})">
-                   <img  src="img/test/product/{{n}}.jpg">
+               <div class="gallery-one" ng-repeat="gallery in galleries" ng-click="gallerynav.pushPage('gallery_detail.html', {data: {id: gallery.id,title:gallery.title}})">
+                   <img  ng-src="{{img+'gallery-small/'+gallery.picname}}">
                    <div class="card-footer">
-                    <span> نام گالری  </span>
+                    <span> {{gallery.title}} </span>
                    </div>
                </div>
            </div>
@@ -24,19 +24,18 @@
 <ons-template id="fullScreenGallery.html" >
     <ons-dialog id="dialog-3" >
        <div class="close_page" id="gallery_nav">
-            <ons-toolbar modifier="job_detail">
-                <div class="left"> <ons-icon ng-click="share()" icon="ion-android-share-alt"></ons-icon>  </div>
+            <ons-toolbar style="margin-top: 20px;" modifier="job_detail">
                 <div class="right"> <ons-icon icon="ion-android-close" ng-click="dialog.hide();"  fixed-width="false"></ons-icon> </div>
             </ons-toolbar> 
         </div>
-        <ks-swiper-container swiper="swiper" class="gallery_slider" on-ready="onReadySwiper(swiper)" initial-slide="gallery_active" override-parameters="{'preloadImages': 'true','effect':'slide', 'zoom': 'true', 'nextButton': '.swiper-button-next', 'prevButton': '.swiper-button-prev','lazyLoadingInPrevNext' : 'true','pagination': '.swiper-pagination'}">
-            <ks-swiper-slide class="swiper-slide1" ng-repeat="n in [0,1,2,3,4,5,6,7,8,9,11,12]">
+        <ks-swiper-container swiper="swiper" class="gallery_slider" on-ready="onReadySwiper(swiper)" initial-slide="gallery_active" override-parameters="{'preloadImages': 'false','effect':'slide', 'zoom': 'true', 'nextButton': '.swiper-button-next', 'prevButton': '.swiper-button-prev','lazyLoadingInPrevNext' : 'true','pagination': '.swiper-pagination'}">
+            <ks-swiper-slide class="swiper-slide1" ng-repeat="gallery in galleries">
                 <div class="swiper-zoom-container">
-                    <img src="img/test/product/{{n}}.jpg"/>
+                    <img ng-src="{{img+'gallery/'+gallery.picname}}"/>
                 </div>
                 <div class="gallery_info">
-                    <h4 class="name"> عنوان عکس </h4>
-                    <p class="desc"><i class="fa fa-bookmark" ></i> دسته بندی </p>
+                    <h4 class="name"> {{gallery.title}} </h4>
+                    <p class="desc"><i class="fa fa-bookmark" ></i> {{ gallerynav.topPage.data.title }}</p>
                 </div>
             </ks-swiper-slide>
         </ks-swiper-container>

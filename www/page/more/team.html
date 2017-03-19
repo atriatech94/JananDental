@@ -5,31 +5,28 @@
                 <ons-icon icon="ion-android-close" ng-click="morenav.popPage()" style="color: white; font-size: 28px;" fixed-width="false"></ons-icon>
             </ons-toolbar-button>
         </div>
-        <div class="center">{{ morenav.topPage.data.title }}</div>
+        <div class="center"> {{ morenav.topPage.data.name }}</div>
     </ons-toolbar>
     <div class="main" id="blog_detail">
-        <div class="img" > <img src="img/test/detail/1.jpg"> </div>
+        <div class="img" > <img ng-src="{{img+'team/'+morenav.topPage.data.picname}}"> </div>
         <div class="contain">
-            <h3>دکتر جیران طالبی نژاد</h3>
-            <p class="mt5 mb5  h6" ><i class="ion-university"></i> دندان پزشک</p>
-            <div class="text"> لورم ایپسوم متن ساختگی با تول در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-            </div>
+            <h3> {{ morenav.topPage.data.name }} </h3>
+            <p class="mt5 mb5  h6" ><i class="ion-university"></i> {{ morenav.topPage.data.post }} </p>
+            <div class="text" ng-bind-html="description"></div>
             <br>
-            <p class="mt5 mb5 h6" ><i class="fa fa-envelope"></i> info@mail.com</p>
-            <p class="mt5 mb5  h6" ><i class="fa fa-instagram"></i> @jeyran</p>
-            <p class="mt5 mb5  h6" ><i class="fa fa-telegram"></i> @jeyran</p>
-            <p class="mt5 mb5  h6" ><i class="fa fa-facebook-square"></i> facebook.com/jeyrantalebi</p>
             <h4 class="mt10 mb10"> ساعات حضور در هفته </h4>
-            <p class="h6"> شنبه از ساعت 9 - 13 و 18 - 21     </p>
-            <p class="h6"> یکشنبه از ساعت 9 - 13 و 18 - 21   </p>
-            <p class="h6"> دوشنبه از ساعت 9 - 13 و 18 - 21   </p>
-            <p class="h6"> سه شنبه از ساعت 9 - 13 و 18 - 21  </p>
-            <p class="h6"> چهار شنبه از ساعت 9 - 13 و 18 - 21 </p>
-            <p class="h6"> پنج شنبه از ساعت 9 - 13 و 18 - 21  </p>
+            <p class="h6"> شنبه صبح  {{time_table.satAm}}  و بعد از ظهر  {{time_table.satPm}}     </p>
+            <p class="h6"> یکشنبه صبح  {{time_table.sunAm}}  و بعد از ظهر   {{time_table.sunPm}}   </p>
+            <p class="h6"> دوشنبه صبح {{time_table.monAm}} و بعد از ظهر {{time_table.monPm}}   </p>
+            <p class="h6"> سه شنبه صبح {{time_table.tuesAm}}  و بعد از ظهر {{time_table.tuesPm}}  </p>
+            <p class="h6"> چهار شنبه صبح  {{time_table.wenAm}}  و بعد از ظهر {{time_table.wenPm}} </p>
+            <p class="h6"> پنج شنبه صبح {{time_table.thrAm}} و بعد از ظهر {{time_table.thrPm}}  </p>
             
         </div>
+        
         <div class="gallery">
-            <img  ng-repeat="(key,n) in [0,1,2,3,4,5,6,7,8,9,11,12]" src="img/test/product/{{n}}.jpg"  ng-click="showDialog();active_swiper(key);">
+            <h4 class="mt10 mb10 contain"> مدارک</h4>
+            <img  ng-repeat="(key,image) in images" ng-src="{{img+'cert/'+image.picname}}"  ng-click="showDialog();active_swiper(key);">
         </div>
     </div>
 </ons-page>
