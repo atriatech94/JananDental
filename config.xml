@@ -9,9 +9,8 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarStyle" value="lightcontent" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="blackopaque" />
     <preference name="deployment-target" value="10.0" />
     <preference name="orientation" value="portrait" />
    
