@@ -1,0 +1,44 @@
+<ons-navigator var="gallerynav" animation="slide" page="gallery.html"></ons-navigator>
+
+<ons-template id="gallery.html"> 
+    <ons-page>
+        <ons-toolbar>
+           <!-- <div class="left"><ons-toolbar-button><ons-icon ng-click="gallery_popover.show($event)" icon="ion-gear-a"  style="color: white; font-size: 28px;" fixed-width="false"></ons-icon></ons-toolbar-button></div> --> 
+            <div class="center">گالری</div>
+        </ons-toolbar>
+        <div class="main">
+           <div class="contain-gallery">
+               <div class="gallery-one" ng-repeat="gallery in galleries" ng-click="gallerynav.pushPage('gallery_detail.html', {data: {id: gallery.id,title:gallery.title}})">
+                   <img  ng-src="{{img+'gallery-small/'+gallery.picname}}">
+                   <div class="card-footer">
+                    <span> {{gallery.title}} </span>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </ons-page>
+</ons-template>
+<ons-template id="gallery_detail.html">
+    <div ng-include="'page/gallery/gallery_detail.html'" ng-controller="galleryDetail"  ></div>
+</ons-template>
+<ons-template id="fullScreenGallery.html" >
+    <ons-dialog id="dialog-3" >
+       <div class="close_page" id="gallery_nav">
+            <ons-toolbar style="margin-top: 20px;" modifier="job_detail">
+                <div class="right"> <ons-icon icon="ion-android-close" ng-click="dialog.hide();"  fixed-width="false"></ons-icon> </div>
+            </ons-toolbar> 
+        </div>
+        <ks-swiper-container swiper="swiper" class="gallery_slider" on-ready="onReadySwiper(swiper)" initial-slide="gallery_active" override-parameters="{'preloadImages': 'false','effect':'slide', 'zoom': 'true', 'nextButton': '.swiper-button-next', 'prevButton': '.swiper-button-prev','lazyLoadingInPrevNext' : 'true','pagination': '.swiper-pagination'}">
+            <ks-swiper-slide class="swiper-slide1" ng-repeat="gallery in galleries">
+                <div class="swiper-zoom-container">
+                    <img ng-src="{{img+'gallery/'+gallery.picname}}"/>
+                </div>
+                <div class="gallery_info">
+                    <h4 class="name"> {{gallery.title}} </h4>
+                    <p class="desc"><i class="fa fa-bookmark" ></i> {{ gallerynav.topPage.data.title }}</p>
+                </div>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+    </ons-dialog>
+</ons-template>
+

@@ -1,0 +1,32 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="right">
+            <ons-toolbar-button>
+                <ons-icon icon="ion-android-close" ng-click="morenav.popPage()" style="color: white; font-size: 28px;" fixed-width="false"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center"> {{ morenav.topPage.data.name }}</div>
+    </ons-toolbar>
+    <div class="main" id="blog_detail">
+        <div class="img" > <img ng-src="{{img+'team/'+morenav.topPage.data.picname}}"> </div>
+        <div class="contain">
+            <h3> {{ morenav.topPage.data.name }} </h3>
+            <p class="mt5 mb5  h6" ><i class="ion-university"></i> {{ morenav.topPage.data.post }} </p>
+            <div class="text" ng-bind-html="description"></div>
+            <br>
+            <h4 class="mt10 mb10"> ساعات حضور در هفته </h4>
+            <p class="h6"> شنبه صبح  {{time_table.satAm}}  و بعد از ظهر  {{time_table.satPm}}     </p>
+            <p class="h6"> یکشنبه صبح  {{time_table.sunAm}}  و بعد از ظهر   {{time_table.sunPm}}   </p>
+            <p class="h6"> دوشنبه صبح {{time_table.monAm}} و بعد از ظهر {{time_table.monPm}}   </p>
+            <p class="h6"> سه شنبه صبح {{time_table.tuesAm}}  و بعد از ظهر {{time_table.tuesPm}}  </p>
+            <p class="h6"> چهار شنبه صبح  {{time_table.wenAm}}  و بعد از ظهر {{time_table.wenPm}} </p>
+            <p class="h6"> پنج شنبه صبح {{time_table.thrAm}} و بعد از ظهر {{time_table.thrPm}}  </p>
+            
+        </div>
+        
+        <div class="gallery">
+            <h4 class="mt10 mb10 contain"> مدارک</h4>
+            <img  ng-repeat="(key,image) in images" ng-src="{{img+'cert/'+image.picname}}"  ng-click="showDialog();active_swiper(key);">
+        </div>
+    </div>
+</ons-page>

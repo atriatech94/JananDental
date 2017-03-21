@@ -1,0 +1,87 @@
+<ons-navigator var="morenav" animation="lift-ios" page="more.html"></ons-navigator>
+<ons-template id="more.html">
+    <ons-page>
+        <ons-toolbar><div class="center">تماس با ما</div></ons-toolbar>
+        <div class="main">
+            <div style="width: 100%;height: 200px" >
+                <a class="mapImg" target="_blank" href="https://www.google.com/maps/dir//29.6848162,52.4701479/"><img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAQTzD6zRS99awjZKsH0jIJbCjaX4uG6ko&center=29.6848162,52.4701479&zoom=16&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://janandental.com/file/images/fav-janan.png%7Cshadow:true%7C29.6848162,52.4701479" alt="Google Map of 29.6848162,52.4701479"></a>
+            </div>
+            <!--===================-->
+            <div class="info">
+                <ons-row class="card">
+                    <ons-col class="icon" width="50px"><ons-icon size="50px;" icon="ion-ios-telephone"></ons-icon></ons-col>
+                    <ons-col class="text">
+                        <span>تلفن : {{ contact.tel }}</span>
+                        <span>فکس : {{ contact.fax }}</span>
+                        <span>تلفن همراه : {{ contact.mobile }}</span>
+                      
+
+                    </ons-col>
+                </ons-row> 
+                <ons-row class="card">
+                    <ons-col class="icon" width="50px"><ons-icon size="50px;" icon="fa-building-o"></ons-icon></ons-col>
+                    <ons-col class="text">
+                        <span> آدرس :</span>
+                        <span>{{ contact.address }}</span>
+                    </ons-col>
+                </ons-row> 
+                <ons-row class="card">
+                    <ons-col class="icon" width="50px"><ons-icon size="50px;" icon="ion-ios-email"></ons-icon></ons-col>
+                    <ons-col class="text">
+                        <span> پست الکترونیک:</span>
+                        <a style="text-decoration: none; color: black;" href="mailto:{{contact.email}}">{{ contact.email }} </a>
+                    </ons-col>
+                </ons-row>
+                 <ons-row ng-click="insta()" class="card">
+                    <ons-col class="icon" width="50px"><ons-icon size="50px;" icon="ion-social-instagram-outline"></ons-icon></ons-col>
+                    <ons-col class="text">
+                        <span> صفخه اینستاگرام :</span>
+                        <span dir="ltr"> @JananDental </span>
+                    </ons-col>
+                </ons-row> 
+            </div>
+            <!--=========our team==========-->
+            <div class="team">
+                <ons-row>
+                   
+                    <ons-col ng-repeat="team in team" width="50%">
+                        <div class="card">
+                            <img ng-click="morenav.pushPage('team.html', {data: {id:team.id,name:team.name,description:team.desc,post:team.post,picname:team.picname}})" ng-src="{{img+'team/'+team.picname}}">
+                            <p class="name">{{team.name}}</p>
+                            <p class="post">{{team.post}}</p>
+                            <div class="card-footer"><a  ng-click="morenav.pushPage('team.html', {data: {id:team.id,name:team.name,description:team.desc,post:team.post,picname:team.picname}})" class="link">جزییات</a></div>
+                        </div>
+                    </ons-col>
+
+                </ons-row>
+            </div>
+            <!--===============contact us====================-->
+            <div class="contact p15bs ">
+                <ons-button modifier="large"  ng-click="morenav.pushPage('contact.html', {data: {id: 1,title:'فرم تماس'}})"><ons-icon icon="ion-android-contacts"></ons-icon> فرم تماس </ons-button>
+            </div>
+        </div>
+    </ons-page>
+</ons-template>
+<ons-template id="team.html">
+    <div ng-include="'page/more/team.html'" ng-controller="team" ></div>
+
+</ons-template>
+<ons-template id="contact.html">
+    <div ng-include="'page/more/contact.html'" ng-controller="contact" ></div>
+</ons-template>
+<ons-template id="fullScreenSert.html" >
+    <ons-dialog id="dialog-3" >
+       <div class="close_page" id="gallery_nav">
+            <ons-toolbar style="margin-top: 20px;" modifier="job_detail">
+                <div class="right" > <ons-icon icon="ion-android-close" ng-click="dialog.hide();"  fixed-width="false"></ons-icon> </div>
+            </ons-toolbar> 
+        </div>
+        <ks-swiper-container swiper="swiper" class="gallery_slider" on-ready="onReadySwiper(swiper)" initial-slide="gallery_active" override-parameters="{'preloadImages': 'false','effect':'slide', 'zoom': 'true', 'nextButton': '.swiper-button-next', 'prevButton': '.swiper-button-prev','lazyLoadingInPrevNext' : 'true','pagination': '.swiper-pagination'}">
+            <ks-swiper-slide class="swiper-slide1" ng-repeat="image in images">
+                <div class="swiper-zoom-container">
+                    <img ng-src="{{img+'cert/'+image.picname}}"/>
+                </div>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+    </ons-dialog>
+</ons-template>

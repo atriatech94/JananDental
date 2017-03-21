@@ -9,20 +9,19 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarStyle" value="blackopaque" />
     <preference name="deployment-target" value="10.0" />
     <preference name="orientation" value="portrait" />
-   
+    <preference name="StatusBarStyle" value="styleBlackTranslucent" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
-     <feature name="StatusBar">
+   
+    <feature name="StatusBar">
             <param name="ios-package" value="CDVStatusBar" onload="true" />
-    </feature>
+        </feature>
     <platform name="ios">
         <icon height="57" platform="ios" src="www/res/icon/ios/icon.png" width="57" />
         <icon height="114" platform="ios" src="www/res/icon/ios/icon@2x.png" width="114" />

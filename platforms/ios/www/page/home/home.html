@@ -1,0 +1,21 @@
+<ons-tabbar >
+    <ons-tab label="تماس با ما" icon="ion-ios-telephone" page="tab4.html" ></ons-tab>
+    <ons-tab label="گالری" icon="ion-images" page="tab3.html" ></ons-tab>
+    <ons-tab label="مطالب" icon="ion-ios-paper"  page="tab2.html" ></ons-tab>
+    <ons-tab label="خانه" icon="ion-ios-home" page="tab1.html" active></ons-tab>
+</ons-tabbar>
+<!--=====================-->
+
+<!--=====================-->
+<ons-template id="tab1.html">
+     <div ng-include="'page/home/pageone.html'" ng-controller="pageone" ></div>
+</ons-template>
+<ons-template id="tab2.html">
+     <div ng-include="'page/blog/blog.html'" ng-controller="blog" ></div>
+</ons-template>
+<ons-template id="tab3.html">
+     <div ng-include="'page/gallery/gallery.html'" ng-controller="gallery"></div>
+</ons-template>
+<ons-template id="tab4.html">
+     <div ng-include="'page/more/more.html'" ng-controller="more" ></div>
+</ons-template>
